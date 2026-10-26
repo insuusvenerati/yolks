@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - mono/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "yolks:mono_${{ matrix.tag }}"
@@ -34,4 +38,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/yolks:mono_${{ matrix.tag }}
+            ghcr.io/${{ github.repository_owner }}/yolks:mono_${{ matrix.tag }}

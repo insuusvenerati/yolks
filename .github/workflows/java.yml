@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - java/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "yolks:java_${{ matrix.tag }}"
@@ -48,4 +52,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/yolks:java_${{ matrix.tag }}
+            ghcr.io/${{ github.repository_owner }}/yolks:java_${{ matrix.tag }}

@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - apps/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "yolks:apps_${{ matrix.app }}"
@@ -39,4 +43,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/apps:${{ matrix.app }}
+            ghcr.io/${{ github.repository_owner }}/apps:${{ matrix.app }}

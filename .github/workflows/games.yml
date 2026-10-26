@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - games/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   pushAMD64:
     name: "games_AMD64:${{ matrix.game }}"
@@ -42,7 +46,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/games:${{ matrix.game }}
+            ghcr.io/${{ github.repository_owner }}/games:${{ matrix.game }}
   pushAll:
     name: "games_All:${{ matrix.game }}"
     runs-on: ubuntu-latest
@@ -73,4 +77,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/games:${{ matrix.game }}
+            ghcr.io/${{ github.repository_owner }}/games:${{ matrix.game }}

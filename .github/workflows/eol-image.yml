@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - end-of-life/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "yolks:end-of-life"
@@ -34,4 +38,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/yolks:end-of-life
+            ghcr.io/${{ github.repository_owner }}/yolks:end-of-life

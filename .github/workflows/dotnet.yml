@@ -8,6 +8,10 @@ on:
       - main
     paths:
       - dotnet/**
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "yolks:dotnet_${{ matrix.tag }}"
@@ -43,4 +47,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/ptero-eggs/yolks:dotnet_${{ matrix.tag }}
+            ghcr.io/${{ github.repository_owner }}/yolks:dotnet_${{ matrix.tag }}
