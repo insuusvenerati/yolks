@@ -8,6 +8,11 @@ on:
       - main
     paths:
       - steamcmd/**
+
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   push:
     name: "steamcmd:${{ matrix.distro }}"
@@ -40,4 +45,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/insuusvenerati/steamcmd:${{ matrix.distro }}
+            ghcr.io/${{ github.repository_owner }}/steamcmd:${{ matrix.distro }}
